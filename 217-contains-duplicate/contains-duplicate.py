@@ -4,15 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums) == 1:
-            return False
-        nums2 = set()
-        for i in nums:
-            if(i in nums2):
-                return True
-            else:
-                nums2.add(i)
-        return False
+        return len(nums) != len(set(nums))
 
             
         
