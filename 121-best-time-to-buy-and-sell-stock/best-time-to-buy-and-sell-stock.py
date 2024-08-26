@@ -8,13 +8,11 @@ class Solution(object):
             return 0
         max_profit = 0
         min_price = prices[0]
-        j = 1
-        while(j<len(prices)):
+        for j in range(1, len(prices)):
             if (prices[j]<min_price):
                 min_price = prices[j]
             if (prices[j]-min_price > max_profit):
                 max_profit = prices[j] - min_price
-            j+=1
         return max_profit
             
         
