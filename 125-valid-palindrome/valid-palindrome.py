@@ -9,6 +9,6 @@ class Solution(object):
 
         new = ''
         for a in s:
-            if a.isalpha() or a.isdigit():
+            if a.isalnum():
                 new += a.lower()
         return (new == new[::-1])
