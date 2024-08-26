@@ -4,19 +4,25 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        p = {"(":")", "[":"]", "{":"}"}
-        if len(s)<2:
+        p = {")":"(", "]":"[", "}":"{"}
+        l = [letter for letter in s]
+        if len(l) == 1:
             return False
-        a = list(s)
-        b = []
-        while (len(a)>0):
-            if len(b) == 0:
-                b.insert(0, a.pop())
-            elif (a[-1] in p.keys()) and (p[a[-1]] == b[0]):
-                a.pop()
-                b.pop(0)
+        k = []
+        while(len(l)>0):
+            if len(k) == 0:
+                k.append(l.pop())
+            if (k[-1] in p.keys()) and (len(l)>0):
+                if (p[k[-1]] == l[-1]):
+                    k.pop()
+                    l.pop()
+                else:
+                    k.append(l.pop())
             else:
-                b.insert(0, a.pop())
-        return len(b) == 0
+                return False
+        if (len(l) == 0) and (len(k) == 0):
+            return True
+        else:
+            return False
 
 
